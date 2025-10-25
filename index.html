@@ -12,6 +12,32 @@
         #performance { margin-top: 3px; font-size: 11px; color: #ffff00; }
         input { margin: 3px; padding: 3px; width: 70px; }
         label { margin-right: 3px; font-size: 12px; }
+        
+        /* 自定义滚动条样式 */
+        #detailedGuide::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        #detailedGuide::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        #detailedGuide::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00ff00, #00ffff);
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        #detailedGuide::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #00ffff, #00ff00);
+        }
+        
+        /* Firefox 滚动条样式 */
+        #detailedGuide {
+            scrollbar-width: thin;
+            scrollbar-color: #00ff00 rgba(255,255,255,0.1);
+        }
     </style>
 </head>
 <body>
@@ -110,7 +136,7 @@
     </div>
     
     <!-- 右侧使用说明面板 -->
-    <div id="instructions" style="position: absolute; top: 10px; right: 10px; color: white; font-size: 12px; max-width: 200px; background: rgba(0,0,0,0.8); padding: 10px; border-radius: 5px; border: 1px solid #333;">
+    <div id="instructions" style="position: absolute; top: 10px; right: 10px; color: white; font-size: 12px; max-width: 200px; background: rgba(0,0,0,0.8); padding: 10px; border-radius: 5px; border: 1px solid #333; z-index: 999;">
         <strong>操作说明：</strong><br>
         • 鼠标滚轮：缩放<br>
         • 自由视角：拖拽旋转<br>
@@ -119,9 +145,106 @@
         <strong>快捷键：</strong><br>
         • H键：隐藏/显示控制面板<br>
         • I键：隐藏/显示说明<br>
+        • G键：隐藏/显示详细说明<br>
         • R键：重置视角<br>
         <button onclick="toggleControls()" style="margin-top: 5px; padding: 3px; font-size: 10px; background: #555; color: white; border: none; border-radius: 3px; cursor: pointer;">隐藏控制面板</button>
         <button onclick="toggleInstructions()" style="margin-top: 3px; padding: 3px; font-size: 10px; background: #555; color: white; border: none; border-radius: 3px; cursor: pointer;">隐藏说明</button>
+        <button onclick="toggleDetailedGuide()" style="margin-top: 3px; padding: 3px; font-size: 10px; background: #555; color: white; border: none; border-radius: 3px; cursor: pointer;">详细说明</button>
+    </div>
+    
+    <!-- 详细说明面板 -->
+    <div id="detailedGuide" style="position: absolute; top: 250px; right: 10px; color: white; font-size: 11px; max-width: 350px; max-height: calc(100vh - 350px); background: rgba(0,0,0,0.9); padding: 15px; border-radius: 8px; border: 2px solid #444; display: none; z-index: 1000; overflow-y: auto; overflow-x: hidden;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <strong style="font-size: 14px; color: #00ff00;">QSDT理论关系显化详解</strong>
+            <button onclick="toggleDetailedGuide()" style="background: #ff4444; color: white; border: none; border-radius: 3px; padding: 2px 6px; cursor: pointer; font-size: 10px;">关闭</button>
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🌐 基础网络结构：</strong><br>
+            • <span style="color: #00ff00;">绿色节点</span>：量子空间基本单元<br>
+            • <span style="color: #00ff00;">绿色连接线</span>：关系网络连接<br>
+            • <span style="color: #ff6600;">橙色相位波</span>：信息传递过程
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🔵 意志边界墙：</strong><br>
+            • <span style="color: #0000ff;">蓝色球体</span>：保护机制边界<br>
+            • <span style="color: #ffff00;">黄色火花</span>：冲破边界的能量<br>
+            • 观察：粒子撞击时产生火花效果
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🌌 子母宇宙：</strong><br>
+            • <span style="color: #ff0000;">红色节点</span>：母宇宙（原始网络）<br>
+            • <span style="color: #00ff00;">绿色节点</span>：子宇宙（压缩生成）<br>
+            • <span style="color: #ffff00;">黄色连接</span>：子母宇宙关系<br>
+            • 观察：母宇宙压缩，子宇宙独立演化
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">⚡ 强大存在：</strong><br>
+            • <span style="color: #ff00ff;">紫色节点</span>：高维存在<br>
+            • <span style="color: #00ffff;">青色球体</span>：影响力范围<br>
+            • 观察：全连接态，影响周围网络
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🌊 能级瀑布：</strong><br>
+            • <span style="color: #ff6600;">彩色环形</span>：不同能级层<br>
+            • <span style="color: #ff6600;">环形粒子</span>：能级间跃迁<br>
+            • 观察：能量从高能级流向低能级
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🔄 哥白尼闭环：</strong><br>
+            • <span style="color: #ffff00;">黄色节点</span>：验证循环节点<br>
+            • <span style="color: #ffff00;">数据流</span>：理论验证过程<br>
+            • 观察：节点旋转，数据流动
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🧠 意识觉醒：</strong><br>
+            • <span style="color: #ff8800;">橙色节点</span>：意识节点<br>
+            • <span style="color: #ff8800;">觉醒粒子</span>：自我建模过程<br>
+            • 观察：节点亮度变化，粒子环绕
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">⏰ 时间箭头：</strong><br>
+            • <span style="color: #ff6600;">橙色箭头</span>：时间方向<br>
+            • <span style="color: #ff6600;">流动粒子</span>：熵增过程<br>
+            • 观察：箭头旋转，粒子单向流动
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🔗 量子纠缠：</strong><br>
+            • <span style="color: #00ff00;">绿色粒子</span> + <span style="color: #ff0000;">红色粒子</span>：纠缠对<br>
+            • <span style="color: #ffff00;">黄色连接线</span>：纠缠关系<br>
+            • 观察：粒子同步运动，连接线动态更新
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🔄 关系重塑：</strong><br>
+            • <span style="color: #00ffff;">青色节点</span>：重塑节点<br>
+            • <span style="color: #00ffff;">动态连接</span>：关系变化<br>
+            • 观察：节点位置变化，连接强度波动
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <strong style="color: #00ffff;">🔍 宇宙探测器：</strong><br>
+            • <span style="color: #ffffff;">白色主体</span>：探测器<br>
+            • <span style="color: #00ff00;">绿色光束</span>：扫描范围<br>
+            • <span style="color: #00ff00;">数据粒子</span>：信息收集<br>
+            • 观察：光束旋转，粒子向探测器移动
+        </div>
+        
+        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #444;">
+            <strong style="color: #ffff00;">💡 观察技巧：</strong><br>
+            • 使用自由视角近距离观察细节<br>
+            • 调整节点数量观察网络密度变化<br>
+            • 结合不同视角模式理解空间关系<br>
+            • 注意颜色变化和运动模式
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script>
@@ -1075,7 +1198,7 @@
             // 切换使用说明面板显示/隐藏
             function toggleInstructions() {
                 const instructions = document.getElementById('instructions');
-                const toggleButton = document.querySelector('#instructions button:last-child');
+                const toggleButton = document.querySelector('#instructions button:nth-last-child(2)');
                 
                 if (instructions.style.display === 'none') {
                     instructions.style.display = 'block';
@@ -1083,6 +1206,20 @@
                 } else {
                     instructions.style.display = 'none';
                     toggleButton.textContent = '显示说明';
+                }
+            }
+            
+            // 切换详细说明面板显示/隐藏
+            function toggleDetailedGuide() {
+                const detailedGuide = document.getElementById('detailedGuide');
+                const toggleButton = document.querySelector('#instructions button:last-child');
+                
+                if (detailedGuide.style.display === 'none') {
+                    detailedGuide.style.display = 'block';
+                    toggleButton.textContent = '关闭说明';
+                } else {
+                    detailedGuide.style.display = 'none';
+                    toggleButton.textContent = '详细说明';
                 }
             }
             
@@ -1512,6 +1649,9 @@
                 } else if (event.key === 'i' || event.key === 'I') {
                     // I键：隐藏/显示使用说明
                     toggleInstructions();
+                } else if (event.key === 'g' || event.key === 'G') {
+                    // G键：隐藏/显示详细说明
+                    toggleDetailedGuide();
                 } else if (event.key === 'r' || event.key === 'R') {
                     // R键：重置视角
                     resetView();
